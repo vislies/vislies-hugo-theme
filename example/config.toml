@@ -1,4 +1,4 @@
-baseURL = "https://www.vislies.org"
+baseURL = "https://www.vislies.org/2022/"
 theme   = "vislies-hugo-theme"
 title   = "VisLies"
 
