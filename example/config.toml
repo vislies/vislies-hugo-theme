@@ -1,6 +1,6 @@
-baseURL = "https://sk1.jsiu.dev"
-theme   = "sk1"
-title   = "SK1"
+baseURL = "https://www.vislies.org"
+theme   = "vislies-hugo-theme"
+title   = "VisLies"
 
 [Params]
 mainSections = "post"
