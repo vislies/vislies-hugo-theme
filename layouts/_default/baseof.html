@@ -6,11 +6,18 @@
 </head>
 
 <body>
-	{{- partial "header.html" . -}}
-	<div id="content">
-		{{- block "main" . }}{{- end }}
-	</div>
-	{{- partial "footer.html" . -}}
+  <div id="body-wrapper">
+    <div id="sidebar-wrapper">
+      {{- partial "sidebar.html" . -}}
+    </div>
+    <div id="page-content-wrapper">
+      {{- partial "header.html" . -}}
+      <div id="content">
+        {{- block "main" . }}{{- end }}
+      </div>
+      {{- partial "footer.html" . -}}
+    </div>
+  </div>
 </body>
 
 </html>

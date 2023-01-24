@@ -1,0 +1,26 @@
+{{ $url := urls.Parse site.BaseURL }}
+{{ $site := (print $url.Scheme "://" $url.Host "/") }}
+
+<ul class="sidebar-nav">
+  <li class="sidebar-brand"><a href="{{ $site }}">VisLies</a></li>
+  <li><a href="{{ site.BaseURL }}"><strong>{{ site.Title }} {{ site.Params.this_year }}</strong></a></li>
+  <ul class="sidebar-sub">
+    {{ range .Params.main_nav }}
+    <li class="nav-sub-item"><a href="{{ .url }}">{{ .title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ if site.Params.gallery_ready }}
+  <li><a href="{{ site.BaseURL }}gallery/"><strong>VisLies {{ site.Params.this_year }} Gallery</strong></a></li>
+  {{ end }}
+  <ul class="sidebar-sub">
+    {{ range .Params.gallery_nav }}
+    <li class="nav-sub-item"><a href="{{ .url }}">{{ .title }}</a></li>
+    {{ end }}
+  </ul>
+  {{ range after 1 (seq site.Params.this_year -1 site.Params.first_year) }}
+  <li><a href="{{ $site }}{{ . }}/">VisLies {{ . }}</a></li>
+  <ul class="sidebar-sub">
+    <li><a href="{{ $site }}{{ . }}/gallery/">Gallery</a></li>
+  </ul>
+  {{ end }}
+</ul>

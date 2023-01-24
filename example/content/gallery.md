@@ -1,5 +1,5 @@
 ---
-main-nav:
+gallery_nav:
   - title: First Section
     url: "#first-section"
   - title: Second Section

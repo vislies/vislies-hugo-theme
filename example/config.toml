@@ -3,13 +3,9 @@ theme   = "vislies-hugo-theme"
 title   = "VisLies"
 
 [Params]
-this_year = 2023
+this_year = 2022
 first_year = 2015
 
-mainSections = "post"
-subtitle     = "A Hugo Theme"
+gallery_ready = true
 
-[markup.tableOfContents]
-endLevel   = 6
-ordered    = false
-startLevel = 1
+sidebar_color = "#00008B"
