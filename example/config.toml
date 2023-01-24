@@ -3,6 +3,9 @@ theme   = "vislies-hugo-theme"
 title   = "VisLies"
 
 [Params]
+this_year = 2023
+first_year = 2015
+
 mainSections = "post"
 subtitle     = "A Hugo Theme"
 
