@@ -9,3 +9,13 @@ first_year = 2015
 gallery_ready = true
 
 sidebar_color = "#00008B"
+
+# This allows html markup in markdown pages (that are used to build the
+# web content). Without this, any html content is just removed. In addtion
+# to being convenient to add html snippets, shortcode using {{% %}} syntax
+# flat out doesn't work without it. So, not including this option, IMO,
+# makes no sense.
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
