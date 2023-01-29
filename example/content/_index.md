@@ -6,7 +6,7 @@ main_nav:
     url: "#organization"
 ---
 
-![VisLies 2022!](images/VisLiesLogo2022.png)
+![VisLies 2022!](VisLiesLogo2022.png)
 
 # VisLies 2022
 
@@ -25,9 +25,9 @@ opportunity for amusement and for learning, and every year we walk away
 with a smile on our faces and a deeper sense of responsibility that may
 one-day impact the world.
 
-![Example 1](images/example1.jpg)
-![Example 2](images/example2.jpg)
-![Example 3](images/example3.jpg)
+![Example 1](example1.jpg)
+![Example 2](example2.jpg)
+![Example 3](example3.jpg)
 
 
 ## Call for Participation
@@ -81,5 +81,11 @@ your name and a note that you want to present. That's it.
 Questions? Contact us at
 <a href="mailto:vislies2022@vislies.org">vislies2022@vislies.org</a>.
 
-| ![Kenneth Moreland](images/ken-edited.jpg) | ![Bernice Rogowitz](images/bernice-edited.jpg) |
-| &nbsp; <a href="http://www.kennethmoreland.com/">Kenneth Moreland</a> | &nbsp; &nbsp; &nbsp; &nbsp; <a href="https://sites.google.com/site/bernicerogowitz/">Bernice Rogowitz</a> |
+
+|                              |                                  |
+|------------------------------|----------------------------------|
+| ![Kenneth Moreland](ken.jpg) | ![Bernice Rogowitz](bernice.jpg) |
+| [Kenneth Moreland]           | [Bernice Rogowitz]               |
+
+[Kenneth Moreland]: https://www.kennethmoreland.com
+[Bernice Rogowitz]: https://sites.google.com/site/bernicerogowitz/
