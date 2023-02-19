@@ -108,11 +108,70 @@ follow the standard instructions for pushing your local repository there.
 
 ### Instructing GitHub to build the pages
 
-TBD
+Next, add a workflow to the repository that GitHub will run when commits
+are pushed to the main branch. The workflow will run hugo to create the web
+pages and push it to the gh-pages branch. The is done by adding YAML
+configuration files in the `.github/workflows`. The example directory has
+a [_github] directory that can be copied to the the repo and renamed
+`.github` (i.e., `cp -r themes/vislies-hugo-theme/example/_github .github`).
+
+The workflow that implements building the pages is typically named
+`.github/workflows/gh-pages.yml`. The following [workflow builds Hugo].
+
+``` yml
+name: github pages
+
+on:
+  push:
+    branches:
+      - main  # Set a branch to deploy
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+```
+
+After commits are pushed to a GitHub repository with these workflows in the
+repo, GitHub will automatically run them. The status of these workflows can
+be found by clicking the `Actions` tab.
+
+This procedure comes from
+https://gohugo.io/hosting-and-deployment/hosting-on-github/.
 
 ### Turning on GitHub Pages
 
-TBD
+Now that GitHub is building the web pages, the next step is to turn on the
+GitHub pages to serve the content. First, click the `Settings` tab and then
+click the `Pages` section. Keep the `Source` as `Deploy from a branch`. (The
+workflow just created takes care of deployment.) Change the `Branch` to
+`gh-pages`. (The `gh-pages` is created by the already defined workflow.)
+Don't forget to `Save`.
+
+Once the `Branch` is set, you will notice a new workflow started in the
+`Actions` tab. One of the actions in the workflow is `deploy`, and that
+will point to the web page created.
 
 ## Building the gallery
 
@@ -121,6 +180,8 @@ TBD
 
 [Hugo]: https://gohugo.io/
 [vislies project in GitHub]: https://github.com/vislies
+[_github]: example/_github
+[workflow builds Hugo]: example/_github/workflows/gh-pages.yml
 
 [^2165]: I think it's safe to assume that VisLies will be around for at
     least that long.
