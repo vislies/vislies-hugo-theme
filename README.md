@@ -175,7 +175,85 @@ will point to the web page created.
 
 ## Building the gallery
 
-TBD
+The gallery page is created with the `contents/gallery/index.md` file. Once
+VisLies happens and you are ready to write the gallery, edit this file.
+
+### Adding sections
+
+Each VisLie is generally in its own section. When Hugo creates a section,
+it will create an anchor for it that is the same name as the title except
+all lower case, spaces replaced with hyphens, and other punctuation (such
+as commas or colons) removed. For example, A section named "A Crazy, Stupid
+Lie" would have the anchor `a-crazy-stupid-lie`.
+
+The template builds a menu in the sidebar to all the sections in the
+gallery. Unfortunately, this menu building is not completely automatic. All
+the links to the sections should be added in the YAML `gallery_nav` list in
+the header. Each item in the list needs a `title` element that repeats the
+title and a `url` element that references the anchor.
+
+``` yaml
+---
+gallery_nav:
+  - title: A Crazy, Stupid Lie
+    url: #a-crazy-stupid-lie
+  - table: Another Lie
+    url: #another-lie
+---
+```
+
+### Image Files
+
+The VisLies gallery is all about images. The image files that are part of
+the repo should be placed in the `contents/gallery` directory (the same
+location as the `index.md` file for the gallery). This means that these
+files can be accessed by filename only (and is necessary for the shortcode
+functionality).
+
+I try to avoid placing large files in the repo. Larger files can be placed
+in the VisLies Google drive. There is a gallery directory there for this
+purpose and I create a subdirectory for each year.
+
+Images in the Google drive are fine to link, but cannot be used for images
+posted on the site. For larger images, create a thumbnail. Place the
+thumbnail in the repo and the full size image in the Google drive.
+
+### Showing Images
+
+Images should be shown in the gallery using the `Image` shortcode.
+
+```
+{{< image src="electorate-pie-chart-thumb.jpg"
+          link="https://drive.google.com/file/d/1mXDkmXiK9VyhoIVej9OxstbbaMqOR1kD/view"
+          align="right"
+          lie="top-right" >}}
+```
+
+Here are the supported arguments for the `image` shortcode:
+
+* `src` (required) The image file to show in the page. This is often a
+  smaller resolution (thumbnail) to fit on the page.
+* `link` The link to the full size image. If `link` is not specified, the
+  image is linked to `src`.
+* `align` Specify where, horizontally, the image will be placed. If not
+  specified, the image will be inline with the text. here are valid values:
+  * `left` The image floats on the left side of the page.
+  * `right` The image floats on the right side of the page.
+  * `full` The image is stretched across the full width of the page.
+* `width` If specified, the contents are passed to the `width` parameter of
+  the `img` tag.
+* `height` If specified, the contents are passed to the `height` parameter
+  of the `img` tag.
+* `lie` If specified, a LIE glyph is placed on top of the image. The
+  contents must be one of the following identifiers specifying where the
+  glyph is placed: `top-left`, `top-right`, `bottom-left`, `bottom-right`,
+  or `custom`. If `custom` is specified, `liePosLeft` and `liePosRight`
+  should also be specified. Note that if the image is resized, the
+  automatic position may not work.
+* `liePosLeft` The position of the glyph in pixels from the left end of the
+  image.
+* `liePosTop` The position of the glyph in pixels from the top end of the
+  image.
 
 
 [Hugo]: https://gohugo.io/

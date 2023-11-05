@@ -1,0 +1,61 @@
+{{ $imageSrc := .Params.src }}
+
+{{ $width := (.Page.Resources.GetMatch $imageSrc).Width }}
+{{ $height := (.Page.Resources.GetMatch $imageSrc).Height }}
+
+{{ if .Params.align }}
+{{ if (eq .Params.align "left") }}
+<div class="image-left">
+{{ else if (eq .Params.align "right") }}
+<div class="image-right">
+{{ else if (eq .Params.align "full") }}
+<div class="image-full">
+{{ else }}
+{{ errorf "Bad value for parameter `align`: `%s`" .Params.align }}
+{{ end }}
+{{ end }}
+  {{ if .Params.link }}
+  <a href="{{ .Params.link }}">
+  {{ else }}
+  <a href="{{ $imageSrc }}">
+  {{ end }}
+    {{ if .Params.lie }}
+    <img src="../images/lie.png" class="lie"
+         style="
+           {{ with .Params.liePosLeft }}
+           left:{{ . }}px;
+           {{ else }}
+           {{ if (or (eq .Params.lie "top-right")
+                     (eq .Params.lie "bottom-right")) }}
+           left:{{ sub $width 55 }}px;
+           {{ else if (not (or (eq .Params.lie "top-left")
+                               (eq .Params.lie "bottom-left"))) }}
+           {{ errorf "Bad value for parameter `lie`: `%s`" .Params.lie }}
+           {{ end }}
+           {{ end }}
+           {{ with .Params.liePosTop }}
+           top:{{ . }}px;
+           {{ else }}
+           {{ if (or (eq .Params.lie "bottom-left")
+                     (eq .Params.lie "bottom-right")) }}
+           top:{{ sub $height 45 }}px;
+           {{ else if (not (or (eq .Params.lie "top-left")
+                               (eq .Params.lie "top-right"))) }}
+           {{ errorf "Bad value for parameter `lie`: `%s`" .Params.lie }}
+           {{ end }}
+           {{ end }}
+         "/>
+    {{ end }}
+
+    <img src="{{ $imageSrc }}"
+         {{ if .Params.width }}
+         width="{{ .Params.width }}"
+         {{ end }}
+         {{ if .Params.height }}
+         height="{{ .Params.height }}"
+         {{ end }}
+         />
+  </a>
+{{ if .Params.align }}
+</div>
+{{ end }}
