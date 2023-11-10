@@ -13,6 +13,8 @@
 {{ else }}
 {{ errorf "Bad value for parameter `align`: `%s`" .Params.align }}
 {{ end }}
+{{ else }}
+<div class="image-inline">
 {{ end }}
   {{ if .Params.link }}
   <a href="{{ .Params.link }}">
@@ -48,6 +50,7 @@
     {{ end }}
 
     <img src="{{ $imageSrc }}"
+         class="image-in-div"
          {{ if .Params.width }}
          width="{{ .Params.width }}"
          {{ end }}
@@ -56,6 +59,4 @@
          {{ end }}
          />
   </a>
-{{ if .Params.align }}
 </div>
-{{ end }}

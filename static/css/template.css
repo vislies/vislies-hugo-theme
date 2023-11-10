@@ -636,7 +636,7 @@ li {
 }
 
 .image-constrain {
-	overflow: auto;
+    overflow: auto;
 }
 .image-stop {
     clear: both;
@@ -655,11 +655,25 @@ li {
     position: relative;
     max-width: 100%;
 }
+.image-inline {
+    position: relative;
+    display: inline;
+    max-width: 100%
+}
+img.image-in-div {
+    vertical-align: top;
+    max-width: 100%;
+}
 img.image-full {
     width: 100%;
     clear: both;
     position: relative;
     max-width: 100%;
+}
+img.image-inline {
+    position: relative;
+    display: inline;
+    vertical-align: top;
 }
 img.image-half {
     width: 48%;
