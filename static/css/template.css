@@ -688,8 +688,26 @@ img.image-third {
     max-width: 100%;
 }
 
-img.lie {
+img.lie-top-left {
     position: absolute;
     top: 5px;
     left: 5px;
+}
+img.lie-top-right {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+img.lie-bottom-left {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+}
+img.lie-bottom-right {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
+img.lie-custom {
+    position: absolute;
 }

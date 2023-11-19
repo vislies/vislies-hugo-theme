@@ -247,12 +247,15 @@ Here are the supported arguments for the `image` shortcode:
 * `lie` If specified, a LIE glyph is placed on top of the image. The
   contents must be one of the following identifiers specifying where the
   glyph is placed: `top-left`, `top-right`, `bottom-left`, `bottom-right`,
-  or `custom`. If `custom` is specified, `liePosLeft` and `liePosRight`
-  should also be specified. Note that if the image is resized, the
-  automatic position may not work.
+  or `custom`. If `custom` is specified, the `liePos*` options should be
+  specified to place the lie.
 * `liePosLeft` The position of the glyph in pixels from the left end of the
   image.
+* `liePosRight` The position of the glyph in pixels from the right end of the
+  image.
 * `liePosTop` The position of the glyph in pixels from the top end of the
+  image.
+* `liePosBottom` The position of the glyph in pixels from the bottom end of the
   image.
 
 
