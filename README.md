@@ -50,13 +50,13 @@ help setup the site. This is available in
 
 ## Configuring
 
-Copy the `config.toml` example file to your repo.
+Copy the `hugo.toml` example file to your repo.
 
 ``` sh
-cp themes/vislies-hugo-theme/example/config.toml .
+cp themes/vislies-hugo-theme/example/hugo.toml .
 ```
 
-It is OK to overwrite the existing `config.toml` created by Hugo. There are
+It is OK to overwrite the existing `hugo.toml` created by Hugo. There are
 some edits to make to the configuration.
 
   * `baseURL`: Update the URL to point to the correct year (e.g.,
@@ -64,7 +64,7 @@ some edits to make to the configuration.
   * `this_year`: Update this to the correct year (e.g., `2165`).
   * `sidebar_color`: Set this to a web color that will be used for the
     sidebar at the left. It is good to have a distinct color for each year.
-  * `gallert_ready`: A boolean that controls whether a link to the gallery
+  * `gallery_ready`: A boolean that controls whether a link to the gallery
     page is included in the menu. This starts out as `false` before the
     event. After the event, a gallery is created based on what was
     presented. When this is ready, change this to `true`.
@@ -76,7 +76,7 @@ These can be copied as a starting point. Pages in Hugo are created by
 markdown files in the `content` directory.
 
 ``` sh
-cp themes/vislies-hugo-theme/example/content/* content
+cp -r themes/vislies-hugo-theme/example/content/* content
 ```
 
 The example content directory contains two files. The file named
