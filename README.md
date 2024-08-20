@@ -64,6 +64,8 @@ some edits to make to the configuration.
   * `this_year`: Update this to the correct year (e.g., `2165`).
   * `sidebar_color`: Set this to a web color that will be used for the
     sidebar at the left. It is good to have a distinct color for each year.
+  * `sidebar_light_background`: If teh `sidebar_color` is light, set this
+    option to `true` to make the text on it dark.
   * `gallery_ready`: A boolean that controls whether a link to the gallery
     page is included in the menu. This starts out as `false` before the
     event. After the event, a gallery is created based on what was

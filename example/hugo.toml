@@ -9,6 +9,7 @@ first_year = 2015
 gallery_ready = false
 
 sidebar_color = "#00008B"
+sidebar_light_background = false
 
 # This allows html markup in markdown pages (that are used to build the
 # web content). Without this, any html content is just removed. In addtion

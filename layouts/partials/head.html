@@ -6,6 +6,11 @@
 
 <style>
   #sidebar-wrapper { background: {{ site.Params.sidebar_color }}; }
+  {{ if site.Params.sidebar_light_background }}
+  .sidebar-nav li a { color: #666666; }
+  .sidebar-nav li a:hover { color: #000; background: rgba(0,0,0,0.2); }
+  .sidebar-nav > .sidebar-brand a { color: #000; }
+  {{ end }}
 </style>
 
 <link rel="apple-touch-icon-precomposed" sizes="57x57" href="{{ "images/icon/apple-touch-icon-57x57.png" | absURL }}" />
